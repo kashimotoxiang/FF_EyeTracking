@@ -60,3 +60,14 @@ int FaceTrackingUtilities::GetChecked(HMENU menu)
 
 	return 0;
 }
+
+
+PXCCapture::DeviceInfo* FaceTrackingUtilities::GetCheckedDeviceInfo(HWND hwndDlg)
+{
+	HMENU menu=GetSubMenu(GetMenu(hwndDlg),0);	// ID_DEVICE
+	int pos = GetChecked(menu);
+	if(g_deviceInfoMap.size() == 0)
+		return NULL;
+	else
+		return &g_deviceInfoMap[pos];
+}

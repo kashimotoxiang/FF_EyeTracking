@@ -5,6 +5,8 @@
 #include <string>
 #include <fstream>
 
+#include "pxcfacemodule.h"
+#include "pxcfacedata.h"
 #include "pxcfaceconfiguration.h"
 #include "pxcsensemanager.h"
 #include "FaceTrackingUtilities.h"
@@ -102,7 +104,7 @@ void FaceTrackingProcessor::Process(HWND dialogWindow) {
 
 	if (!FaceTrackingUtilities::GetPlaybackState(dialogWindow)) {
 
-		captureManager->FilterByDeviceInfo(FaceTrackingUtilities::GetCheckedDevice(dialogWindow), 0, 0);
+		captureManager->FilterByDeviceInfo(FaceTrackingUtilities::GetCheckedDeviceInfo(dialogWindow));
 
 	}
 
